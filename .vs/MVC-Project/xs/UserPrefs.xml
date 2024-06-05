@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{0BD1B99A-8B53-45D9-A6D1-F13CE9AF18A4}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MVC-Project PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MVC-Project/Areas/Admin/Views/Shared/_Layout.cshtml">
+    <Files>
+      <File FileName="MVC-Project/Data/AppDbContext.cs" />
+      <File FileName="MVC-Project/Areas/Admin/Views/Shared/_Layout.cshtml" Line="15" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MVC-Project" expanded="True">
+            <Node name="MVC-Project" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Views" expanded="True">
+                    <Node name="Shared" expanded="True">
+                      <Node name="_Layout.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Data" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
