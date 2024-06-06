@@ -1,11 +1,13 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using MVC_Project.Models;
+
 namespace MVC_Project.Data
 {
-	public class AppDbContext
-	{
-		public AppDbContext()
-		{
-		}
-	}
+	public class AppDbContext : IdentityDbContext<AppUser>
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    }
 }
 

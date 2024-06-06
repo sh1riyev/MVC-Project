@@ -32,6 +32,20 @@
     <None Remove="Areas\Admin\Controllers\" />
     <None Remove="Areas\Admin\Views\" />
     <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Header\" />
+    <None Remove="Views\Shared\Components\Footer\" />
+    <None Remove="Views\Shared\Components\Carousel\" />
+    <None Remove="Views\Shared\Components\About\" />
+    <None Remove="Views\Shared\Components\Categories\" />
+    <None Remove="Views\Shared\Components\Popular\" />
+    <None Remove="Views\Shared\Components\Instructors\" />
+    <None Remove="Views\Shared\Components\Students\" />
+    <None Remove="Views\Shared\Components\Information\" />
+    <None Remove="Views\Shared\Components\Contact\" />
+    <None Remove="ViewComponents\" />
+    <None Remove="Helpers\Extentions\" />
+    <None Remove="Helpers\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -44,5 +58,19 @@
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Header\" />
+    <Folder Include="Views\Shared\Components\Footer\" />
+    <Folder Include="Views\Shared\Components\Carousel\" />
+    <Folder Include="Views\Shared\Components\About\" />
+    <Folder Include="Views\Shared\Components\Categories\" />
+    <Folder Include="Views\Shared\Components\Popular\" />
+    <Folder Include="Views\Shared\Components\Instructors\" />
+    <Folder Include="Views\Shared\Components\Students\" />
+    <Folder Include="Views\Shared\Components\Information\" />
+    <Folder Include="Views\Shared\Components\Contact\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Helpers\Extentions\" />
+    <Folder Include="Helpers\Enums\" />
   </ItemGroup>
 </Project>
