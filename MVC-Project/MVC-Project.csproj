@@ -48,6 +48,7 @@
     <None Remove="Helpers\Enums\" />
     <None Remove="Areas\Admin\Views\Dashboard\" />
     <None Remove="ViewModels\Account\" />
+    <None Remove="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -76,5 +77,6 @@
     <Folder Include="Helpers\Enums\" />
     <Folder Include="Areas\Admin\Views\Dashboard\" />
     <Folder Include="ViewModels\Account\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
 </Project>

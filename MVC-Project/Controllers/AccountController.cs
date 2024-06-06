@@ -30,7 +30,7 @@ namespace MVC_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new AppUser { FullName = request.FullName, Email = request.Email };
+                var user = new AppUser { UserName= request.Email, FullName = request.FullName, Email = request.Email };
                 var result = await _userManager.CreateAsync(user, request.Password);
                 if (result.Succeeded)
                 {

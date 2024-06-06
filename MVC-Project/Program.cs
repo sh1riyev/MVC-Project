@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MVC_Project.Data;
 using MVC_Project.Models;
+using MVC_Project.Services;
+using MVC_Project.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
+    options.SignIn.RequireConfirmedEmail = true;
 }).
                  AddEntityFrameworkStores<AppDbContext>().
                  AddDefaultTokenProviders();
@@ -37,6 +40,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
     options.SlidingExpiration = true;
 });
+
+
+builder.Services.AddScoped<ISettingService, SettingService>();
 
 var app = builder.Build();
 

@@ -8,6 +8,11 @@ namespace MVC_Project.ViewComponents
 		public InstructorsViewComponent()
 		{
 		}
-	}
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            return View();
+        }
+    }
 }
 

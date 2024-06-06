@@ -8,6 +8,11 @@ namespace MVC_Project.ViewComponents
 		public PopularViewComponent()
 		{
 		}
-	}
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            return View();
+        }
+    }
 }
 
