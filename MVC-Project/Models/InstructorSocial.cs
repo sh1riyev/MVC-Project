@@ -5,7 +5,8 @@ namespace MVC_Project.Models
 	{
 		public int InstructorId { get; set; }
 		public int SocialId { get; set; }
-		public Instructor Instructor { get; set; } = null;
+        public string Url { get; set; }
+        public Instructor Instructor { get; set; } = null;
 		public Social Social { get; set; } = null;
 	}
 }
