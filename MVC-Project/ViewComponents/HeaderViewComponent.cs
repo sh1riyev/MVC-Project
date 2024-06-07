@@ -16,9 +16,8 @@ namespace MVC_Project.ViewComponents
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
 			var settings = await _settingService.GetAllAsync();
-		var login = new LogInVM();
 
-            return await Task.FromResult(View(new HeaderVM { Settings=settings,UserLogin=login}));
+            return await Task.FromResult(View(new HeaderVM { Settings=settings}));
         }
 }
 
@@ -26,7 +25,6 @@ namespace MVC_Project.ViewComponents
 	public class HeaderVM
 	{
 		public Dictionary<string,string> Settings { get; set; }
-		public LogInVM UserLogin { get; set; }
 	}
 }
 

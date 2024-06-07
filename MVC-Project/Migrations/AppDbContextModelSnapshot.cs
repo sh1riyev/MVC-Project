@@ -47,6 +47,26 @@ namespace MVC_Project.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "e6321108-f942-4e92-92d7-a882c0b67b1f",
+                            Name = "Member",
+                            NormalizedName = "MEMBER"
+                        },
+                        new
+                        {
+                            Id = "48b43127-5350-4a94-b901-742b2c6c98d7",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "b6cdad15-c6ac-4af2-911b-8065ca4477e2",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -134,6 +154,18 @@ namespace MVC_Project.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "aebb8b80-e548-419a-bb3a-e9c8b1c92834",
+                            RoleId = "48b43127-5350-4a94-b901-742b2c6c98d7"
+                        },
+                        new
+                        {
+                            UserId = "bfd06bcc-5c10-4845-9bd0-905ab14a53f3",
+                            RoleId = "b6cdad15-c6ac-4af2-911b-8065ca4477e2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -222,6 +254,43 @@ namespace MVC_Project.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "bfd06bcc-5c10-4845-9bd0-905ab14a53f3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0db05963-620d-4fec-a4ae-dceff2bc2199",
+                            Email = "shiriyev@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Ilqar Shiriyev",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SHIRIYEV@GMAIL.COM",
+                            NormalizedUserName = "SHIRIYEV23",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBue2GAjq0NtoG0BMPzIULBFrLA68HUkhXEWjfATAk8YkRlN6pp6l7asim9jnNYh0A==",
+                            PhoneNumber = "0508802323",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "164ca0ed-0094-412c-8b50-951b88110a20",
+                            TwoFactorEnabled = false,
+                            UserName = "shiriyev23"
+                        },
+                        new
+                        {
+                            Id = "aebb8b80-e548-419a-bb3a-e9c8b1c92834",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "551293a4-7464-4e4d-a51b-618a11c0bd14",
+                            Email = "salam@gmail.com",
+                            EmailConfirmed = true,
+                            FullName = "Ilqar Shiriyev",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SALAM@GMAIL.COM",
+                            NormalizedUserName = "SALAM23",
+                            PhoneNumber = "0508802323",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "8a4972d2-b31a-44fd-afd2-0a68ab3bface",
+                            TwoFactorEnabled = false,
+                            UserName = "salam23"
+                        });
                 });
 
             modelBuilder.Entity("MVC_Project.Models.Setting", b =>
@@ -280,6 +349,10 @@ namespace MVC_Project.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

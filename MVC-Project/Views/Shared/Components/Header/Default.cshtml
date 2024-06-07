@@ -2,79 +2,43 @@
 
 
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="courses.html" class="nav-item nav-link">Courses</a>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+    <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="courses.html" class="nav-item nav-link">Courses</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Account" asp-action="Register" class="nav-item nav-link">Register</a>
+                }
+                else
+                {
+                    <span>Welcome</span>
+                }
+
+            </div>
+            <!-- Button trigger modal -->
             @if (!User.Identity.IsAuthenticated)
             {
-                <a asp-controller="Account" asp-action="Register" class="nav-item nav-link">Register</a>
+                <a asp-controller="Account" asp-action="Login">Login</a>
             }
             else
             {
-                    <span>Welcome</span>
+                <form method="post" asp-controller="Account" asp-action="Logout">
+                    <button type="submit">Logout</button>
+                </form>
             }
 
-        </div>
-        <!-- Button trigger modal -->
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" data-mdb-modal-init data-mdb-target="#staticBackdrop1">
-                Login
-            </button>
-
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                <div class="modal-dialog d-flex justify-content-center">
-                    <div class="modal-content w-75">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel1">Sign in</h5>
-                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body p-4">
-                            <form asp-action="Login">
-                                <!-- Email input -->
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="email" asp-for="@Model.UserLogin.Email" class="form-control" />
-                                    <label class="form-label" asp-for="@Model.UserLogin.Email">Email address</label>
-                                    <span asp-validation-for="@Model.UserLogin.Email" class="text-danger"></span>
-                                </div>
-
-                                <!-- password input -->
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" asp-for="@Model.UserLogin.Password" class="form-control" />
-                                    <label class="form-label" asp-for="@Model.UserLogin.Password">Password</label>
-                                    <span asp-validation-for="@Model.UserLogin.Password" class="text-danger"></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <input asp-for="@Model.UserLogin.RememberMe" />
-                                    <label asp-for="@Model.UserLogin.RememberMe"></label>
-                                </div>
-
-                                <!-- Submit button -->
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block">Login</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            <form method="post" asp-controller="Account" asp-action="Logout">
-                <button type="submit">Logout</button>
-            </form>
-        }
-
-        <!-- Modal -->
+        </div>
     </div>
+   
 </nav>

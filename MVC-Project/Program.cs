@@ -5,6 +5,7 @@ using MVC_Project.Data;
 using MVC_Project.Models;
 using MVC_Project.Services;
 using MVC_Project.Services.Interface;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +28,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
     options.SignIn.RequireConfirmedEmail = true;
-}).
-                 AddEntityFrameworkStores<AppDbContext>().
-                 AddDefaultTokenProviders();
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 
 builder.Services.ConfigureApplicationCookie(options =>
@@ -43,8 +44,18 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 
 builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<ISliderService, SliderService>();
 
 var app = builder.Build();
+
+// Ensure the database is seeded when the application starts
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AppDbContext>();
+    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -71,4 +82,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
