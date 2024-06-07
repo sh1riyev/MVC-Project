@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Data;
+using MVC_Project.Models;
 using MVC_Project.Services.Interface;
 
 namespace MVC_Project.Services

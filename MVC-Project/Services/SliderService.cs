@@ -21,11 +21,18 @@ namespace MVC_Project.Services
             await  _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<SliderHomeVM>> GetAll()
+        public async Task Delete(Slider slider)
+        {
+            _context.Sliders.Remove(slider);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<SliderVM>> GetAll()
         {
             var sliders = await _context.Sliders.ToListAsync();
-            var sliderHomeVM = sliders.Select(item => new SliderHomeVM
+            var sliderHomeVM = sliders.Select(item => new SliderVM
             {
+                Id=item.Id,
                 Description = item.Description,
                 Title = item.Title,
                 Image = item.Image
@@ -33,6 +40,11 @@ namespace MVC_Project.Services
 
             return sliderHomeVM;
 
+        }
+
+        public async Task<Slider> GetById(int id)
+        {
+            return await _context.Sliders.FindAsync(id);
         }
     }
 }

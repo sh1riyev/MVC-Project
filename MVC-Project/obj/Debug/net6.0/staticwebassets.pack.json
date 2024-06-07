@@ -729,6 +729,14 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg",
+      "PackagePath": "staticwebassets/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg"
+    },
+    {
+      "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/a6c06b19-43a9-46bc-8424-254f435393a7-carousel-2.jpg",
+      "PackagePath": "staticwebassets/img/a6c06b19-43a9-46bc-8424-254f435393a7-carousel-2.jpg"
+    },
+    {
       "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/about.jpg",
       "PackagePath": "staticwebassets/img/about.jpg"
     },

@@ -1,5 +1,5 @@
 ﻿using System;
-using MVC_Project.ViewModels.Slider;
+using MVC_Project.Models;
 
 namespace MVC_Project.Services.Interface
 {

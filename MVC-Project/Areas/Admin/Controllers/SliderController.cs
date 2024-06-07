@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using Fiorello_PB101.Helpers.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using MVC_Project.Data;
 using MVC_Project.Helpers.Enums;
 using MVC_Project.Services.Interface;
 using MVC_Project.ViewModels.Slider;
@@ -11,19 +15,22 @@ namespace MVC_Project.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class SliderController : Controller
 	{
+        private readonly AppDbContext _context;
         private readonly ISliderService _sliderService;
         private readonly IWebHostEnvironment _env;
         public SliderController(ISliderService sliderService,
-                                IWebHostEnvironment env)
+                                IWebHostEnvironment env,
+                                AppDbContext context)
 		{
             _sliderService = sliderService;
             _env = env;
+            _context = context;
 		}
 
 		[HttpGet]
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
-			return View();
+			return View(await _sliderService.GetAll());
 		}
 
 		[HttpGet]
@@ -68,7 +75,82 @@ namespace MVC_Project.Areas.Admin.Controllers
             {
                 await request.Image.CopyToAsync(stream);
             }
-            await _sliderService.Create(new Models.Slider { Title = request.Title, Description = request.Description, Image = fileName ,CreateDate=DateTime.Now});
+            await _sliderService.Create(new Models.Slider { Title = request.Title, Description = request.Description, Image = fileName ,CreateDate=DateTime.Now,ActionBy=User.Identity.Name});
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int ? id)
+        {
+            if (id is null) return BadRequest();
+            var blog = await _sliderService.GetById((int)id);
+            if (blog is null) return NotFound();
+
+            string path = Path.Combine(_env.WebRootPath, "img", blog.Image);
+
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+
+            await _sliderService.Delete(blog);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id is null) return BadRequest();
+            var blog = await _sliderService.GetById((int)id);
+            if (blog is null) return NotFound();
+
+            return View(new SliderEditVM { CurrentImage=blog.Image,Title=blog.Title,Description=blog.Description});
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int? id,SliderEditVM request)
+        {
+            if (id is null) return BadRequest();
+            var slider = await _sliderService.GetById((int)id);
+            if (slider is null) return NotFound();
+
+            if (!ModelState.IsValid)
+            {
+                return View(request);
+            }
+
+            if(request.Image is not null)
+            {
+                if (request.Image.CheckFileSize(500))
+                {
+                    ModelState.AddModelError("Images", "Image size must be max 500KB");
+                    return View();
+                }
+                if (request.Image.CheckFileType("image/"))
+                {
+                    ModelState.AddModelError("Images", "File type must be only image");
+                    return View();
+                }
+
+                string filename = $"{Guid.NewGuid()}-{request.Image.FileName}";
+                string path = _env.GenerateFilePath("img", filename);
+                await request.Image.SaveFileToLocalAsync(path);
+                slider.Image = filename;
+            }
+            else
+            {
+                slider.Image = request.CurrentImage;
+            }
+
+            slider.Title = request.Title;
+            slider.Description = request.Description;
+            slider.UpdateDate = DateTime.Now;
+            slider.ActionBy = User.Identity.Name;
+
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }

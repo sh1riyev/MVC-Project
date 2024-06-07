@@ -21,7 +21,8 @@
                 }
                 else
                 {
-                    <span>Welcome</span>
+                    <a  class="nav-item nav-link">@User.Identity.Name</a>
+
                 }
 
             </div>
@@ -33,7 +34,7 @@
             else
             {
                 <form method="post" asp-controller="Account" asp-action="Logout">
-                    <button type="submit">Logout</button>
+                    <button type="submit" class="nav-item nav-link">Logout</button>
                 </form>
             }
 

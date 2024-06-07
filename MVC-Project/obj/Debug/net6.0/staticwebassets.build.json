@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L/tTZdOFuP+bonW1NLMLsDGLQ6iAeOtMLzVLuUxy7sY=",
+  "Hash": "BHngBn+DNClLgXbH27g/swR0gr65K/OQpNxwh6u8vy8=",
   "Source": "MVC-Project",
   "BasePath": "_content/MVC-Project",
   "Mode": "Default",
@@ -3126,6 +3126,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg",
+      "SourceId": "MVC-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/",
+      "BasePath": "_content/MVC-Project",
+      "RelativePath": "img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg"
+    },
+    {
+      "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/a6c06b19-43a9-46bc-8424-254f435393a7-carousel-2.jpg",
+      "SourceId": "MVC-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/",
+      "BasePath": "_content/MVC-Project",
+      "RelativePath": "img/a6c06b19-43a9-46bc-8424-254f435393a7-carousel-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/a6c06b19-43a9-46bc-8424-254f435393a7-carousel-2.jpg"
     },
     {
       "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/about.jpg",

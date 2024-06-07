@@ -15,7 +15,7 @@ namespace MVC_Project.ViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var settings = await _settingService.GetAllAsync();
+			var settings = await _settingService.GetAllAsync();			
 
             return await Task.FromResult(View(new HeaderVM { Settings=settings}));
         }

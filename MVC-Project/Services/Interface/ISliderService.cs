@@ -6,8 +6,10 @@ namespace MVC_Project.Services.Interface
 {
 	public interface ISliderService
 	{
-		public Task<IEnumerable<SliderHomeVM>> GetAll();
+		public Task<IEnumerable<SliderVM>> GetAll();
         public Task Create(Slider slidr);
+        public Task Delete(Slider slider);
+        public Task<Slider> GetById(int id);
     }
 }
 
