@@ -35,7 +35,7 @@ namespace MVC_Project.Areas.Admin.Controllers
 
 		[HttpGet]
         [Authorize(Roles = "SuperAdmin")]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
 		{
 			return View();
 		}
@@ -82,6 +82,7 @@ namespace MVC_Project.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Delete(int ? id)
         {
             if (id is null) return BadRequest();
@@ -106,7 +107,14 @@ namespace MVC_Project.Areas.Admin.Controllers
             var blog = await _sliderService.GetById((int)id);
             if (blog is null) return NotFound();
 
-            return View(new SliderEditVM { CurrentImage=blog.Image,Title=blog.Title,Description=blog.Description});
+            var slider = new SliderEditVM
+            {
+                CurrentImage = blog.Image,
+                Title = blog.Title,
+                Description = blog.Description
+            };
+
+            return View(slider);
         }
 
         [HttpPost]
@@ -119,38 +127,27 @@ namespace MVC_Project.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
+                request.CurrentImage = slider.Image;
                 return View(request);
             }
-
-            if(request.Image is not null)
+            if (request.Image != null)
             {
-                if (request.Image.CheckFileSize(500))
+                if (!request.Image.CheckFileSize(500))
                 {
+                    request.CurrentImage = slider.Image;
                     ModelState.AddModelError("Images", "Image size must be max 500KB");
-                    return View();
+                    return View(request);
                 }
-                if (request.Image.CheckFileType("image/"))
+                if (!request.Image.CheckFileType("image/"))
                 {
+                    request.CurrentImage = slider.Image;
                     ModelState.AddModelError("Images", "File type must be only image");
-                    return View();
+                    return View(request);
                 }
 
-                string filename = $"{Guid.NewGuid()}-{request.Image.FileName}";
-                string path = _env.GenerateFilePath("img", filename);
-                await request.Image.SaveFileToLocalAsync(path);
-                slider.Image = filename;
-            }
-            else
-            {
-                slider.Image = request.CurrentImage;
             }
 
-            slider.Title = request.Title;
-            slider.Description = request.Description;
-            slider.UpdateDate = DateTime.Now;
-            slider.ActionBy = User.Identity.Name;
-
-            await _context.SaveChangesAsync();
+            await _sliderService.Edit(slider, request);
 
             return RedirectToAction(nameof(Index));
         }

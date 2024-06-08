@@ -10,6 +10,7 @@ namespace MVC_Project.Services.Interface
         public Task Create(Slider slidr);
         public Task Delete(Slider slider);
         public Task<Slider> GetById(int id);
+        public Task Edit(Slider slider, SliderEditVM editSlider);
     }
 }
 

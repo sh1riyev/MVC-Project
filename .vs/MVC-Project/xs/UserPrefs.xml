@@ -1,24 +1,52 @@
 ﻿<Properties StartupConfiguration="{0BD1B99A-8B53-45D9-A6D1-F13CE9AF18A4}|Default">
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Areas/Admin/Controllers/SliderController.cs" relfile="MVC-Project/Areas/Admin/Controllers/SliderController.cs" line="103" column="1" />
+      <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Areas/Admin/Controllers/SliderController.cs" relfile="MVC-Project/Areas/Admin/Controllers/SliderController.cs" line="114" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MVC-Project/Areas/Admin/Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MVC-Project/Areas/Admin/Controllers/SliderController.cs">
     <Files>
-      <File FileName="MVC-Project/Data/AppDbContext.cs" />
-      <File FileName="MVC-Project/Areas/Admin/Views/Shared/_Layout.cshtml" Line="15" Column="1" />
+      <File FileName="MVC-Project/Data/AppDbContext.cs" Line="57" Column="17" />
+      <File FileName="MVC-Project/Program.cs" Line="84" Column="1" />
+      <File FileName="MVC-Project/Areas/Admin/Views/Slider/Index.cshtml" Line="1" Column="24" />
+      <File FileName="MVC-Project/Areas/Admin/Views/Slider/Edit.cshtml" Line="4" Column="41" />
+      <File FileName="MVC-Project/Areas/Admin/Controllers/SliderController.cs" Line="123" Column="14" />
+      <File FileName="MVC-Project/Services/SliderService.cs" Line="48" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MVC-Project" expanded="True">
-            <Node name="MVC-Project" expanded="True" />
+            <Node name="MVC-Project" expanded="True">
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Views" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="Interface" expanded="True" />
+              </Node>
+              <Node name="ViewModels" expanded="True">
+                <Node name="Slider" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="Components" expanded="True">
+                    <Node name="Carousel" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.MVC-Project FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.MVC-Project PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

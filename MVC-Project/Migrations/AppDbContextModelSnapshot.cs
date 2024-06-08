@@ -260,17 +260,17 @@ namespace MVC_Project.Migrations
                         {
                             Id = "bfd06bcc-5c10-4845-9bd0-905ab14a53f3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0db05963-620d-4fec-a4ae-dceff2bc2199",
+                            ConcurrencyStamp = "2592908c-ffca-413a-b318-2aa81f3518f1",
                             Email = "shiriyev@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
                             LockoutEnabled = false,
                             NormalizedEmail = "SHIRIYEV@GMAIL.COM",
                             NormalizedUserName = "SHIRIYEV23",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBue2GAjq0NtoG0BMPzIULBFrLA68HUkhXEWjfATAk8YkRlN6pp6l7asim9jnNYh0A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDndwSISoRVix2LLXdsY912+2DUlecXHdyHObox9DIvQObSuVcsS3oB+6K++XnH6LQ==",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "164ca0ed-0094-412c-8b50-951b88110a20",
+                            SecurityStamp = "03893de3-2abe-45dd-b26d-19557ecff1d1",
                             TwoFactorEnabled = false,
                             UserName = "shiriyev23"
                         },
@@ -278,7 +278,7 @@ namespace MVC_Project.Migrations
                         {
                             Id = "aebb8b80-e548-419a-bb3a-e9c8b1c92834",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "551293a4-7464-4e4d-a51b-618a11c0bd14",
+                            ConcurrencyStamp = "c79c853c-fcdc-4f49-96df-9f2b91583a7d",
                             Email = "salam@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
@@ -287,10 +287,51 @@ namespace MVC_Project.Migrations
                             NormalizedUserName = "SALAM23",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "8a4972d2-b31a-44fd-afd2-0a68ab3bface",
+                            SecurityStamp = "4e7e3b0a-8483-4269-be1a-957ecdb7b45a",
                             TwoFactorEnabled = false,
                             UserName = "salam23"
                         });
+                });
+
+            modelBuilder.Entity("MVC_Project.Models.Information", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ActionBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Desciption")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Information");
                 });
 
             modelBuilder.Entity("MVC_Project.Models.Setting", b =>

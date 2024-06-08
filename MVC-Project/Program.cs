@@ -45,6 +45,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
+builder.Services.AddScoped<IInformationService, InformationService>();
+
 
 var app = builder.Build();
 

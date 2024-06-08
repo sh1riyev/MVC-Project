@@ -33,7 +33,11 @@
                             <td><img src="~/img/@item.Image" width="250px" height="200px"/></td>
                             <td>
                                 <a asp-controller="Slider" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning text-white btn-sm"><i class="ti-settings"></i></a>
-                                <form class="d-inline" method="post" asp-action="Delete" asp-route-id="@item.Id"><button type="submit" class="btn btn-danger text-white btn-sm"><i class="ti-trash"></i></button></form>
+                                @if (User.IsInRole("SuperAdmin"))
+                                {
+                                    <form class="d-inline" method="post" asp-action="Delete" asp-route-id="@item.Id"><button type="submit" class="btn btn-danger text-white btn-sm"><i class="ti-trash"></i></button></form>
+
+                                }
                             </td>
                         </tr>
                     }
