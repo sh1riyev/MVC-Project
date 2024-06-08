@@ -53,6 +53,8 @@
     <None Remove="ViewModels\Slider\" />
     <None Remove="ViewModels\Information\" />
     <None Remove="Areas\Admin\Views\Information\" />
+    <None Remove="ViewModels\About\" />
+    <None Remove="Areas\Admin\Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -86,5 +88,7 @@
     <Folder Include="ViewModels\Slider\" />
     <Folder Include="ViewModels\Information\" />
     <Folder Include="Areas\Admin\Views\Information\" />
+    <Folder Include="ViewModels\About\" />
+    <Folder Include="Areas\Admin\Views\About\" />
   </ItemGroup>
 </Project>
