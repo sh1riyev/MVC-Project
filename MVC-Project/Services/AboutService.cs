@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Data;
 using MVC_Project.Models;
@@ -33,6 +34,7 @@ namespace MVC_Project.Services
 
             return datas.Select(item => new AboutVM
             {
+                Id=item.Id,
                 Title = item.Title,
                 Descripntion = item.Description,
                 Image = item.Image
@@ -42,6 +44,13 @@ namespace MVC_Project.Services
         public async Task<About> GetById(int id)
         {
             return await _context.About.FindAsync(id);
+        }
+
+        public async Task<AboutVM> GetFirst()
+        {
+            var data =  await _context.About.FirstOrDefaultAsync(m=>m.IsDeleted==false);
+
+            return new AboutVM { Id = data.Id, Title = data.Title, Descripntion = data.Description, Image = data.Image };
         }
     }
 }

@@ -3,6 +3,7 @@ namespace MVC_Project.Models
 {
 	public class InstructorSocial
 	{
+		public int Id { get; set; }
 		public int InstructorId { get; set; }
 		public int SocialId { get; set; }
         public string Url { get; set; }

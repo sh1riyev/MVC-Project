@@ -79,17 +79,17 @@ namespace MVC_Project.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id is null) return BadRequest();
-            var blog = await _aboutService.GetById((int)id);
-            if (blog is null) return NotFound();
+            var about = await _aboutService.GetById((int)id);
+            if (about is null) return NotFound();
 
-            string path = Path.Combine(_env.WebRootPath, "img", blog.Image);
+            string path = Path.Combine(_env.WebRootPath, "img", about.Image);
 
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);
             }
 
-            await _aboutService.Delete(blog);
+            await _aboutService.Delete(about);
             return RedirectToAction(nameof(Index));
         }
 

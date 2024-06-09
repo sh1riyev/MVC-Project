@@ -55,6 +55,7 @@
     <None Remove="Areas\Admin\Views\Information\" />
     <None Remove="ViewModels\About\" />
     <None Remove="Areas\Admin\Views\About\" />
+    <None Remove="ViewModels\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -90,5 +91,6 @@
     <Folder Include="Areas\Admin\Views\Information\" />
     <Folder Include="ViewModels\About\" />
     <Folder Include="Areas\Admin\Views\About\" />
+    <Folder Include="ViewModels\Category\" />
   </ItemGroup>
 </Project>

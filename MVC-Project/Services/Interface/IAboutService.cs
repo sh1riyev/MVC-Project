@@ -10,6 +10,7 @@ namespace MVC_Project.Services.Interface
         Task Create(About model);
         Task Delete(About model);
         Task<About> GetById(int id);
+        Task<AboutVM> GetFirst();
     }
 }
 

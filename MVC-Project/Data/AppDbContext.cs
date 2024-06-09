@@ -14,6 +14,8 @@ namespace MVC_Project.Data
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Information> Information { get; set; }
         public DbSet<About> About { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

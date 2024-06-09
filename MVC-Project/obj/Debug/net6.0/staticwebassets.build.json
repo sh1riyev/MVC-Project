@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nhRjCBgLPt1TuSgnYPXa+zKV/HRPqYk9+Cac6shtW2g=",
+  "Hash": "RP4F7VQP0Mp/9qj56xgLEJrAqsoxIVvkSEOdgbENWMU=",
   "Source": "MVC-Project",
   "BasePath": "_content/MVC-Project",
   "Mode": "Default",
@@ -3415,6 +3415,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/course-3.jpg"
+    },
+    {
+      "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/ee669f96-2b9a-4d4e-a5bf-b30bf521333b-about.jpg",
+      "SourceId": "MVC-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/",
+      "BasePath": "_content/MVC-Project",
+      "RelativePath": "img/ee669f96-2b9a-4d4e-a5bf-b30bf521333b-about.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/ee669f96-2b9a-4d4e-a5bf-b30bf521333b-about.jpg"
     },
     {
       "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/team-1.jpg",

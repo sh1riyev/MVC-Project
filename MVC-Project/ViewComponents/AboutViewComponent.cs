@@ -14,7 +14,7 @@ namespace MVC_Project.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return View(await _aboutService.GetAll());
+			return View(await _aboutService.GetFirst());
 		}
 
     }
