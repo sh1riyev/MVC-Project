@@ -57,6 +57,10 @@
     <None Remove="Areas\Admin\Views\About\" />
     <None Remove="ViewModels\Category\" />
     <None Remove="Areas\Admin\Views\Category\" />
+    <None Remove="ViewModels\Setting\" />
+    <None Remove="Areas\Admin\Views\Setting\" />
+    <None Remove="ViewModels\Social\" />
+    <None Remove="Areas\Admin\Views\Social\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -94,5 +98,9 @@
     <Folder Include="Areas\Admin\Views\About\" />
     <Folder Include="ViewModels\Category\" />
     <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="ViewModels\Setting\" />
+    <Folder Include="Areas\Admin\Views\Setting\" />
+    <Folder Include="ViewModels\Social\" />
+    <Folder Include="Areas\Admin\Views\Social\" />
   </ItemGroup>
 </Project>

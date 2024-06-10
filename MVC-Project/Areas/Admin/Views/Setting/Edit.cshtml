@@ -1,0 +1,29 @@
+﻿@model SettingEditVM
+
+
+
+@{ViewData["Title"] = "Edit"; }
+
+<div class="form-group row">
+    <form method="post" asp-action="Edit" >
+        <label class="col-sm-2 col-form-label">Setting</label>
+        <div class="col-sm-10">
+            <input asp-for="Key" disabled
+                   class="form-control form-control-round"
+                   placeholder="Name">
+            <span asp-validation-for="Key" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
+            <input asp-for="Value"
+                   class="form-control form-control-round"
+                   placeholder="Value">
+            <span asp-validation-for="Value" class="text-danger"></span>
+        </div>
+        <div class="buttons mt-5">
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </div>
+
+    </form>
+</div>
+

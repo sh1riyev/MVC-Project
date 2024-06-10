@@ -16,6 +16,7 @@ namespace MVC_Project.Data
         public DbSet<About> About { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Social> Socials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -71,6 +72,24 @@ namespace MVC_Project.Data
 
             // Add your other model configurations here
             // Example: builder.Entity<YourModel>().HasData(...);
+
+            builder.Entity<Setting>().HasData(
+                new Setting { Id=1,Key = "Logo", Value = "fa fa-book me-3" },
+                new Setting { Id=2,Key = "Navbar-Name", Value = "eLEARNING" },
+                new Setting { Id = 3, Key = "Address", Value = "123 Street, New York, USA" },
+                new Setting { Id = 4, Key = "Phone", Value = "+012 345 67890" },
+                new Setting { Id = 5, Key = "Email", Value = "info@example.com" },
+                new Setting { Id = 6, Key = "Twitter", Value = "https://x.com/home" },
+                new Setting { Id = 7, Key = "Facebook", Value = "https://facebook.com/home" },
+                new Setting { Id = 8, Key = "Youtube", Value = "https://youtube.com/home" },
+                new Setting { Id = 9, Key = "Linkedin", Value = "https://linkedin.com/home" }
+                );
+
+            builder.Entity<Social>().HasData(
+               new Social { Id = 1, Name = "Facebook", Image = "fab fa-facebook-f" },
+               new Social { Id = 2, Name = "Twitter", Image = "fab fa-twitter" },
+               new Social { Id = 3, Name = "Instagram", Image = "fab fa-instagram" }
+                );
         }
     }
 }

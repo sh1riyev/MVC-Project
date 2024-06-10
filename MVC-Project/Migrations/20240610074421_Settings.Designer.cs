@@ -4,6 +4,7 @@ using MVC_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240610074421_Settings")]
+    partial class Settings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,17 +302,17 @@ namespace MVC_Project.Migrations
                         {
                             Id = "bfd06bcc-5c10-4845-9bd0-905ab14a53f3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9bdb023d-34f7-42ea-97b8-e1a0e14ba2b9",
+                            ConcurrencyStamp = "572eb3c3-0e8c-40c8-9a14-c54401e049c2",
                             Email = "shiriyev@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
                             LockoutEnabled = false,
                             NormalizedEmail = "SHIRIYEV@GMAIL.COM",
                             NormalizedUserName = "SHIRIYEV23",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGlBmTlqHud339uYdNg07phyJ1VK7I9JY2yKNB0CCCIi6p80O/9lSVuiXLu7es0NyQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKjgNSaxTULP8W+sp1USQuzniYBbCOcVwPsTKlT1czPr1bcU85vj7a9Ep6ic1Y/29g==",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "162a417a-7c0a-40dc-82b1-b7217293b57e",
+                            SecurityStamp = "1052b78e-466b-42a9-9637-0484a5935c76",
                             TwoFactorEnabled = false,
                             UserName = "shiriyev23"
                         },
@@ -318,7 +320,7 @@ namespace MVC_Project.Migrations
                         {
                             Id = "aebb8b80-e548-419a-bb3a-e9c8b1c92834",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "80832ed6-7a1a-47dd-a29b-2df181bdab04",
+                            ConcurrencyStamp = "5c028d0f-808b-447f-bf3d-38f0aed3d6fd",
                             Email = "salam@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
@@ -327,7 +329,7 @@ namespace MVC_Project.Migrations
                             NormalizedUserName = "SALAM23",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5f282644-74be-4375-a358-1b5a7a4b154f",
+                            SecurityStamp = "c50436be-e814-4751-a569-84310affc586",
                             TwoFactorEnabled = false,
                             UserName = "salam23"
                         });
@@ -614,7 +616,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7510),
+                            CreateDate = new DateTime(2024, 6, 10, 11, 44, 21, 367, DateTimeKind.Local).AddTicks(5450),
                             IsDeleted = false,
                             Key = "Logo",
                             Value = "fa fa-book me-3"
@@ -622,7 +624,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7560),
+                            CreateDate = new DateTime(2024, 6, 10, 11, 44, 21, 367, DateTimeKind.Local).AddTicks(5530),
                             IsDeleted = false,
                             Key = "Navbar-Name",
                             Value = "eLEARNING"
@@ -630,7 +632,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7560),
+                            CreateDate = new DateTime(2024, 6, 10, 11, 44, 21, 367, DateTimeKind.Local).AddTicks(5530),
                             IsDeleted = false,
                             Key = "Address",
                             Value = "123 Street, New York, USA"
@@ -638,7 +640,7 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7560),
+                            CreateDate = new DateTime(2024, 6, 10, 11, 44, 21, 367, DateTimeKind.Local).AddTicks(5530),
                             IsDeleted = false,
                             Key = "Phone",
                             Value = "+012 345 67890"
@@ -646,42 +648,10 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7560),
+                            CreateDate = new DateTime(2024, 6, 10, 11, 44, 21, 367, DateTimeKind.Local).AddTicks(5540),
                             IsDeleted = false,
                             Key = "Email",
                             Value = "info@example.com"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7560),
-                            IsDeleted = false,
-                            Key = "Twitter",
-                            Value = "https://x.com/home"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7570),
-                            IsDeleted = false,
-                            Key = "Facebook",
-                            Value = "https://facebook.com/home"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7570),
-                            IsDeleted = false,
-                            Key = "Youtube",
-                            Value = "https://youtube.com/home"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7570),
-                            IsDeleted = false,
-                            Key = "Linkedin",
-                            Value = "https://linkedin.com/home"
                         });
                 });
 
@@ -758,33 +728,7 @@ namespace MVC_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Socials");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7600),
-                            Image = "fab fa-facebook-f",
-                            IsDeleted = false,
-                            Name = "Facebook"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7600),
-                            Image = "fab fa-twitter",
-                            IsDeleted = false,
-                            Name = "Twitter"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreateDate = new DateTime(2024, 6, 10, 12, 17, 30, 536, DateTimeKind.Local).AddTicks(7600),
-                            Image = "fab fa-instagram",
-                            IsDeleted = false,
-                            Name = "Instagram"
-                        });
+                    b.ToTable("Social");
                 });
 
             modelBuilder.Entity("MVC_Project.Models.Student", b =>

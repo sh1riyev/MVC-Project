@@ -8,7 +8,7 @@ namespace MVC_Project.Models
 		public DateTime CreateDate { get; set; } = DateTime.Now;
 		public DateTime ? UpdateDate { get; set; }
 		public DateTime ? DeleteDate { get; set; }
-		public string ActionBy { get; set; }
+		public string ? ActionBy { get; set; }
 	}
 }
 
