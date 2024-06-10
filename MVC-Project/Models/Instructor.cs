@@ -8,6 +8,7 @@ namespace MVC_Project.Models
 		public string Subject { get; set; }
 		public ICollection<Course> Courses { get; set; }
 		public List<InstructorSocial> InstructorSocials { get; set; }
+		public string Image { get; set; }
 	}
 }
 

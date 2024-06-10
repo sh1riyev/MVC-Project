@@ -1,0 +1,39 @@
+﻿@model InstructorEditVm
+
+@{ViewData["Title"] = "Edit"; }
+
+<div class="form-group row">
+    <form method="post" asp-action="Edit" enctype="multipart/form-data">
+        <div class="col-sm-10">
+            <label>Name</label>
+            <input asp-for="FullName" class="form-control form-control-round">
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
+            <label>Email</label>
+            <input asp-for="Email" class="form-control form-control-round">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
+            <label>Subject</label>
+            <input asp-for="Subject" class="form-control form-control-round">
+            <span asp-validation-for="Subject" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
+            <label>Courses</label>
+            <select asp-for="CourseIds" asp-items="@ViewBag.Courses" class="form-control form-control-round" multiple="multiple"></select>
+            <span asp-validation-for="CourseIds" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
+            <label>Current Image</label><br>
+            <img src="@Model.CurrentImage" alt="Current Image" class="img-thumbnail" width="200" /><br>
+            <label>New Image</label>
+            <input asp-for="NewImage" class="form-control form-control-round" type="file">
+            <span asp-validation-for="NewImage" class="text-danger"></span>
+        </div>
+        <div class="buttons mt-5">
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <a asp-action="Index" class="btn btn-light">Cancel</a>
+        </div>
+    </form>
+</div>

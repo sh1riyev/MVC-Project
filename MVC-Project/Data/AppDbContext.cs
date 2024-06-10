@@ -17,6 +17,8 @@ namespace MVC_Project.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Social> Socials { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
