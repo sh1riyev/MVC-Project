@@ -16,6 +16,8 @@ namespace MVC_Project.Services.Interface
         Task<Category> GetByIdWithCourse(int id);
         Task<IEnumerable<Category>> GetAllCategories();
         Task<SelectList> GetAllSelectList();
+        Task<IEnumerable<CategoryHomeVM>> GetForHome();
+
     }
 }
 

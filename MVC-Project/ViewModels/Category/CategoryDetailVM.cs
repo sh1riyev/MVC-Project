@@ -7,7 +7,7 @@ namespace MVC_Project.ViewModels.Category
         public string CategoryName { get; set; }
         public string CreateDate { get; set; }
         public List<string> CourseNames { get; set; }
-        public List<CategoryCourseImageVM> Images { get; set; }
+        public string Image { get; set; }
     }
 }
 

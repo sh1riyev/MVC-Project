@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using Fiorello_PB101.Helpers.Extensions;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Data;
 using MVC_Project.Models;
@@ -11,9 +12,12 @@ namespace MVC_Project.Services
 	public class AboutService : IAboutService
 	{
 		private readonly AppDbContext _context;
-		public AboutService(AppDbContext context)
+        private readonly IWebHostEnvironment _env;
+		public AboutService(AppDbContext context,
+            IWebHostEnvironment env)
 		{
             _context = context;
+            _env = env;
 		}
 
         public async Task Create(About model)
@@ -25,6 +29,21 @@ namespace MVC_Project.Services
         public async Task Delete(About model)
         {
             _context.About.Remove(model);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Edit(About model, AboutEditVM reguest)
+        {
+            if (reguest.NewImage != null)
+            {
+                string filename = $"{Guid.NewGuid()}-{reguest.NewImage.FileName}";
+                string path = _env.GenerateFilePath("img", filename);
+                await reguest.NewImage.SaveFileToLocalAsync(path);
+                model.Image = filename;
+            }
+            model.Title = reguest.Title;
+            model.Description = reguest.Description;
+            model.UpdateDate = DateTime.Now;
             await _context.SaveChangesAsync();
         }
 

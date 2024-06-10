@@ -10,6 +10,7 @@ namespace MVC_Project.Services.Interface
 		Task Create(Information model);
 		Task Delete(Information model);
 		Task<Information> GetById(int id);
+		Task Edit(Information model, InformationEditVM request);
     }
 }
 

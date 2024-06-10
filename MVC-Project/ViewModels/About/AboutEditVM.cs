@@ -5,7 +5,7 @@ namespace MVC_Project.ViewModels.About
 	{
         public string? Title { get; set; }
         public string? Description { get; set; }
-        public string CurrentImage { get; set; }
+        public string ? CurrentImage { get; set; }
         public IFormFile? NewImage { get; set; }
     }
 }

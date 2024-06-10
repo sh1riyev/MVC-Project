@@ -125,7 +125,7 @@ namespace MVC_Project.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 request.CurrentImage = slider.Image;
-                return View(request);
+                return RedirectToAction(nameof(Index));
             }
             if (request.Image != null)
             {
@@ -143,6 +143,8 @@ namespace MVC_Project.Areas.Admin.Controllers
                 }
 
             }
+
+            slider.ActionBy = User.Identity.Name;
 
             await _sliderService.Edit(slider, request);
 

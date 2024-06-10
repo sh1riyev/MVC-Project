@@ -733,6 +733,10 @@
       "PackagePath": "staticwebassets/img/15c1f176-5742-47ae-92e9-9860c3fd29e3-carousel-1.jpg"
     },
     {
+      "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/1a816d6e-a85c-4f7a-97c9-2a77a52097d5-cat-2.jpg",
+      "PackagePath": "staticwebassets/img/1a816d6e-a85c-4f7a-97c9-2a77a52097d5-cat-2.jpg"
+    },
+    {
       "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg",
       "PackagePath": "staticwebassets/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg"
     },
@@ -783,6 +787,10 @@
     {
       "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/cat-4.jpg",
       "PackagePath": "staticwebassets/img/cat-4.jpg"
+    },
+    {
+      "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/cb59aa59-36a7-408b-9dcc-2206af1135a9-cat-1.jpg",
+      "PackagePath": "staticwebassets/img/cb59aa59-36a7-408b-9dcc-2206af1135a9-cat-1.jpg"
     },
     {
       "Id": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/course-1.jpg",

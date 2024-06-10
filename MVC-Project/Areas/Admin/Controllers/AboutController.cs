@@ -1,4 +1,5 @@
 ﻿using System;
+using Fiorello_PB101.Helpers.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVC_Project.Helpers.Enums;
@@ -6,6 +7,7 @@ using MVC_Project.Services;
 using MVC_Project.Services.Interface;
 using MVC_Project.ViewModels.About;
 using MVC_Project.ViewModels.Slider;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace MVC_Project.Areas.Admin.Controllers
 {
@@ -97,23 +99,55 @@ namespace MVC_Project.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id is null) return BadRequest();
-            var blog = await _aboutService.GetById((int)id);
-            if (blog is null) return NotFound();
+            var about = await _aboutService.GetById((int)id);
+            if (about is null) return NotFound();
 
-            var slider = new SliderEditVM
+            var aboutVM = new AboutEditVM
             {
-                CurrentImage = blog.Image,
-                Title = blog.Title,
-                Description = blog.Description
+                CurrentImage = about.Image,
+                Title = about.Title,
+                Description = about.Description
             };
 
-            return View(slider);
+            return View(aboutVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int?id,AboutEditVM request)
         {
+            if (id is null) return BadRequest();
+
+            var about = await _aboutService.GetById((int)id);
+
+            if (about is null) return NotFound();
+
+            if (!ModelState.IsValid)
+            {
+                request.CurrentImage = about.Image;
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (request.NewImage != null)
+            {
+                if (!request.NewImage.CheckFileSize(500))
+                {
+                    request.CurrentImage = about.Image;
+                    ModelState.AddModelError("Images", "Image size must be max 500KB");
+                    return View(request);
+                }
+                if (!request.NewImage.CheckFileType("image/"))
+                {
+                    request.CurrentImage = about.Image;
+                    ModelState.AddModelError("Images", "File type must be only image");
+                    return View(request);
+                }
+            }
+
+            about.ActionBy = User.Identity.Name;
+
+            await _aboutService.Edit(about, request);
+
             return RedirectToAction(nameof(Index));
         }
     }

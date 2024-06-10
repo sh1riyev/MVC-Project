@@ -4,6 +4,7 @@ namespace MVC_Project.ViewModels.Category
 	public class CategoryCreateVM
 	{
         public string Name { get; set; }
+        public IFormFile Image { get; set; }
     }
 }
 

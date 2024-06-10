@@ -4,6 +4,7 @@ using MVC_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240609171145_fixedTable")]
+    partial class fixedTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,18 +54,21 @@ namespace MVC_Project.Migrations
                         new
                         {
                             Id = "e6321108-f942-4e92-92d7-a882c0b67b1f",
+                            ConcurrencyStamp = "428019ba-b5ac-4c18-92a6-eb859e710738",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
                             Id = "48b43127-5350-4a94-b901-742b2c6c98d7",
+                            ConcurrencyStamp = "bcac5fea-a30b-4d13-abc5-b81398e9d072",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "b6cdad15-c6ac-4af2-911b-8065ca4477e2",
+                            ConcurrencyStamp = "2534153b-8e26-456e-ada9-6868ad10019e",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -301,17 +306,17 @@ namespace MVC_Project.Migrations
                         {
                             Id = "bfd06bcc-5c10-4845-9bd0-905ab14a53f3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5c8bcf33-7f6a-4533-8de0-bc31fd1d0454",
+                            ConcurrencyStamp = "2e3cef04-18ff-46b0-8a4e-8206f01ab638",
                             Email = "shiriyev@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
                             LockoutEnabled = false,
                             NormalizedEmail = "SHIRIYEV@GMAIL.COM",
                             NormalizedUserName = "SHIRIYEV23",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFJnnjSSr7QnOHHTKYa5fWZzDhlSGi+vlzDZIUnStBnfBI3jssf5gr62VVQyZg8gKQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIUkfNDgb1HyrkpOS4sWUkFaCA38qtDLU/K06+P1Yy5nqV4Uf4a6asdEpQp1/yaf7A==",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "9fb473e0-ac71-453d-a94d-448f9e7e140a",
+                            SecurityStamp = "ddd8a0b6-a407-42f8-b2a8-d0d76387e0e5",
                             TwoFactorEnabled = false,
                             UserName = "shiriyev23"
                         },
@@ -319,7 +324,7 @@ namespace MVC_Project.Migrations
                         {
                             Id = "aebb8b80-e548-419a-bb3a-e9c8b1c92834",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "10724b46-e655-4aec-b1f3-d75bcf58a96f",
+                            ConcurrencyStamp = "302da264-cf26-4567-a289-a19c79f35f4d",
                             Email = "salam@gmail.com",
                             EmailConfirmed = true,
                             FullName = "Ilqar Shiriyev",
@@ -328,7 +333,7 @@ namespace MVC_Project.Migrations
                             NormalizedUserName = "SALAM23",
                             PhoneNumber = "0508802323",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "e9afa7c8-9340-49af-813b-f12bc53ef1e9",
+                            SecurityStamp = "94dbca53-7f6d-44b9-a3d7-6069e89b382b",
                             TwoFactorEnabled = false,
                             UserName = "salam23"
                         });
@@ -351,10 +356,6 @@ namespace MVC_Project.Migrations
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

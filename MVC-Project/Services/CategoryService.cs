@@ -1,19 +1,24 @@
 ﻿using System;
+using Fiorello_PB101.Helpers.Extensions;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project.Data;
 using MVC_Project.Models;
 using MVC_Project.Services.Interface;
 using MVC_Project.ViewModels.Category;
+using MVC_Project.ViewModels.Slider;
 
 namespace MVC_Project.Services
 {
 	public class CategoryService :ICategoryService
 	{
 		private readonly AppDbContext _context;
-		public CategoryService(AppDbContext context)
+        private readonly IWebHostEnvironment _env;
+		public CategoryService(AppDbContext context,
+            IWebHostEnvironment env)
 		{
 			_context = context;
+            _env = env;
 		}
 
         public async Task Create(Category category)
@@ -31,7 +36,15 @@ namespace MVC_Project.Services
 
         public async Task Edit(Category category, CategoryEditVM reguest)
         {
+            if (reguest.NewImage != null)
+            {
+                string filename = $"{Guid.NewGuid()}-{reguest.NewImage.FileName}";
+                string path = _env.GenerateFilePath("img", filename);
+                await reguest.NewImage.SaveFileToLocalAsync(path);
+                category.Image = filename;
+            }
             category.Name = reguest.Name;
+            category.UpdateDate = DateTime.Now;
             await _context.SaveChangesAsync();
         }
 
@@ -74,6 +87,19 @@ namespace MVC_Project.Services
         {
             var datas = await _context.Categories.ToListAsync();
             return new SelectList(datas, "Id", "Name");
+        }
+
+        public async Task<IEnumerable<CategoryHomeVM>> GetForHome()
+        {
+            var categories = await _context.Categories.Include(m => m.Courses).ToListAsync();
+
+            return categories.Select(m => new CategoryHomeVM
+            {
+                Id=m.Id,
+                CategoryName = m.Name,
+                Image = m.Image,
+                CourseCount = m.Courses.Count()
+            });
         }
     }
 }

@@ -45,7 +45,6 @@ namespace MVC_Project.Services
             slider.Title = editSlider.Title;
             slider.Description = editSlider.Description;
             slider.UpdateDate = DateTime.Now;
-
             await _context.SaveChangesAsync();
         }
 

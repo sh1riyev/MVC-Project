@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RP4F7VQP0Mp/9qj56xgLEJrAqsoxIVvkSEOdgbENWMU=",
+  "Hash": "1shpecyy2aL4F5DYY89umhmBrQThLYpXNwllkwMRfqE=",
   "Source": "MVC-Project",
   "BasePath": "_content/MVC-Project",
   "Mode": "Default",
@@ -3145,6 +3145,23 @@
       "OriginalItemSpec": "wwwroot/img/15c1f176-5742-47ae-92e9-9860c3fd29e3-carousel-1.jpg"
     },
     {
+      "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/1a816d6e-a85c-4f7a-97c9-2a77a52097d5-cat-2.jpg",
+      "SourceId": "MVC-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/",
+      "BasePath": "_content/MVC-Project",
+      "RelativePath": "img/1a816d6e-a85c-4f7a-97c9-2a77a52097d5-cat-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/1a816d6e-a85c-4f7a-97c9-2a77a52097d5-cat-2.jpg"
+    },
+    {
       "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/4a208c5d-5dec-419c-8260-083933650d3b-carousel-2.jpg",
       "SourceId": "MVC-Project",
       "SourceType": "Discovered",
@@ -3364,6 +3381,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/cat-4.jpg"
+    },
+    {
+      "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/cb59aa59-36a7-408b-9dcc-2206af1135a9-cat-1.jpg",
+      "SourceId": "MVC-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/",
+      "BasePath": "_content/MVC-Project",
+      "RelativePath": "img/cb59aa59-36a7-408b-9dcc-2206af1135a9-cat-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/cb59aa59-36a7-408b-9dcc-2206af1135a9-cat-1.jpg"
     },
     {
       "Identity": "/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/wwwroot/img/course-1.jpg",
