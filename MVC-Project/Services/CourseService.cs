@@ -41,9 +41,9 @@ namespace MVC_Project.Services
             {
                 Id = m.Id,
                 CourseName = m.Name,
-                CategoryName = m.Category.Name,
+                CategoryName = m.Category?.Name,
                 Price = m.Price,
-                MainImage = m.Images.FirstOrDefault(m => m.IsMain == true).ToString()
+                MainImage = m.Images.FirstOrDefault(m => m.IsMain == true)?.ToString()
             });
         }
 
@@ -61,6 +61,11 @@ namespace MVC_Project.Services
         public async Task<Course> GetById(int id)
         {
             return await _context.Courses.FindAsync(id);
+        }
+
+        public async Task<Course> GetByIdWithImage(int id)
+        {
+            return await _context.Courses.Include(m => m.Images).FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<bool> IsExist(string name)

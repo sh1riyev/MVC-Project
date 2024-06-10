@@ -2,26 +2,44 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Areas/Admin/Controllers/CategoryController.cs" relfile="MVC-Project/Areas/Admin/Controllers/CategoryController.cs" line="91" column="1" />
+      <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Areas/Admin/Controllers/CourseController.cs" relfile="MVC-Project/Areas/Admin/Controllers/CourseController.cs" line="48" column="1" />
+      <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Services/CourseService.cs" relfile="MVC-Project/Services/CourseService.cs" line="37" column="1" />
+      <Breakpoint file="/Users/sh1riyev/Development/Projects/MVC-Project/MVC-Project/Areas/Admin/Controllers/CourseController.cs" relfile="MVC-Project/Areas/Admin/Controllers/CourseController.cs" line="133" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="MVC-Project/Data/AppDbContext.cs">
+  <MonoDevelop.Ide.ItemProperties.MVC-Project PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MVC-Project/Views/Shared/Components/Popular/Default.cshtml">
     <Files>
-      <File FileName="MVC-Project/Services/Interface/ICourseService.cs" Line="14" Column="38" />
-      <File FileName="MVC-Project/Services/CourseService.cs" Line="27" Column="47" />
-      <File FileName="MVC-Project/Areas/Admin/Views/Course/Create.cshtml" Line="29" Column="67" />
-      <File FileName="MVC-Project/Data/AppDbContext.cs" Line="21" Column="1" />
+      <File FileName="MVC-Project/Views/Shared/Components/Categories/Default.cshtml" Line="15" Column="59" />
+      <File FileName="MVC-Project/Views/Home/Index.cshtml" Line="8" Column="41" />
+      <File FileName="MVC-Project/Areas/Admin/Controllers/CourseController.cs" Line="188" Column="16" />
+      <File FileName="MVC-Project/Services/CategoryService.cs" Line="120" Column="72" />
+      <File FileName="MVC-Project/Views/Shared/Components/Popular/Default.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MVC-Project">
             <Node name="MVC-Project">
-              <Node name="Data">
-                <Node name="AppDbContext.cs" selected="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                </Node>
               </Node>
-              <Node name="ViewModels">
-                <Node name="Course" expanded="True" />
-                <Node name="Setting" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="Interface" expanded="True" />
+              </Node>
+              <Node name="ViewComponents" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="Components" expanded="True">
+                    <Node name="Popular" expanded="True">
+                      <Node name="Default.cshtml" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -29,8 +47,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.ItemProperties.MVC-Project PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

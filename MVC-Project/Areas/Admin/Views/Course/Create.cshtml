@@ -31,8 +31,14 @@
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
         <div class="col-sm-10">
+            <label>Price</label>
+            <input asp-for="Duration" type="number" step="any" min="0"
+                   class="form-control form-control-round">
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="col-sm-10">
             <label>Category</label>
-            <select asp-validation-for="CategoryId" asp-items="@ViewBag.categories" class="text-danger form-control form-control-round"></select>
+            <select asp-for="CategoryId" asp-items="@ViewBag.categories" class="text-danger form-control form-control-round"></select>
         </div>
         <div class="col-sm-10">
             <label>Instructor</label>

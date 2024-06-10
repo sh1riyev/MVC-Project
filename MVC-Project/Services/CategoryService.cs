@@ -92,13 +92,40 @@ namespace MVC_Project.Services
         public async Task<IEnumerable<CategoryHomeVM>> GetForHome()
         {
             var categories = await _context.Categories.Include(m => m.Courses).ToListAsync();
+            var categoryCount = categories.Count();
 
-            return categories.Select(m => new CategoryHomeVM
+            return categories.Select((m, index) =>
             {
-                Id=m.Id,
-                CategoryName = m.Name,
-                Image = m.Image,
-                CourseCount = m.Courses.Count()
+                var categoryHomeVM = new CategoryHomeVM
+                {
+                    Id = m.Id,
+                    CategoryName = m.Name,
+                    Image = m.Image,
+                    CourseCount = m.Courses.Count()
+                };
+
+                // For the first category
+                if (index == 0)
+                {
+                    categoryHomeVM.ColumnSizeClass = "col-lg-12 col-md-12";
+                }
+                // For the second and third categories
+                else if (index < 3)
+                {
+                    categoryHomeVM.ColumnSizeClass = "col-lg-6 col-md-12";
+                }
+                // For the last category
+                else if (index == categoryCount - 1)
+                {
+                    categoryHomeVM.ColumnSizeClass = "col-lg-5 col-md-6";
+                }
+                // For any additional categories
+                else
+                {
+                    categoryHomeVM.ColumnSizeClass = "col-lg-4";
+                }
+
+                return categoryHomeVM;
             });
         }
     }

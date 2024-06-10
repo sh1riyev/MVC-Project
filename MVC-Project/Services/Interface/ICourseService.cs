@@ -15,7 +15,8 @@ namespace MVC_Project.Services.Interface
         Task Edit(Course course, CourseEditVM request);
         Task<Course> GetById(int id);
         Task<SelectList> GetAllSelectList();
-
+        Task<Course> GetByIdWithImage(int id);
     }
+    
 }
 

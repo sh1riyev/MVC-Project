@@ -8,7 +8,7 @@ namespace MVC_Project.ViewModels.Course
         public double Duration { get; set; }
         public int Rating { get; set; }
         public int CategoryId { get; set; }
-        public int InstructorId { get; set; }
+        public int ? InstructorId { get; set; }
         public List<IFormFile> Images { get; set; }
     }
 }

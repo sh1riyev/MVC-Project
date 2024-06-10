@@ -9,7 +9,7 @@ namespace MVC_Project.Models
 		public int Rating { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public ICollection<CourseImage> Images { get; set; }
+        public ICollection<CourseImage> ? Images { get; set; }
 		public List<CourseStudent> ? CourseStudents { get; set; }
 		public int ? InstructorId { get; set; }
 		public Instructor ?Instructor { get; set; }

@@ -81,7 +81,7 @@ namespace MVC_Project.Areas.Admin.Controllers
                 CreateDate = DateTime.Now,
                 ActionBy = User.Identity.Name,
                 Subject = request.Subject,
-                Courses = courses.Where(c => request.CourseId.Contains(c.Id)).ToList()
+                Courses = courses.Where(c => request.CourseIds.Contains(c.Id)).ToList()
             });
 
             return RedirectToAction(nameof(Index));
@@ -136,6 +136,42 @@ namespace MVC_Project.Areas.Admin.Controllers
                     return View(request);
                 }
             }
+
+            instructor.ActionBy = User.Identity.Name;
+
+            await _instructorService.Edit(instructor, request);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int? id)
+        {
+
+            if (id is null) return BadRequest();
+            var instructor = await _instructorService.GetById((int)id);
+            if (instructor is null) return NotFound();
+
+            string path = Path.Combine(_env.WebRootPath, "img", instructor.Image);
+
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+
+            await _instructorService.Delete(instructor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id is null) return BadRequest();
+            var instructor = await _instructorService.GetById((int)id);
+            if (instructor is null) return NotFound();
+
+            return View();
         }
     }
 }

@@ -5,6 +5,8 @@ using Microsoft.VisualBasic;
 using MVC_Project.Models;
 using MVC_Project.Services.Interface;
 using MVC_Project.ViewModels.Course;
+using MVC_Project.ViewModels.Information;
+using MVC_Project.ViewModels.Instructor;
 
 namespace MVC_Project.Areas.Admin.Controllers
 {
@@ -28,7 +30,8 @@ namespace MVC_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _service.GetAll());
+            var model = await _service.GetAll();
+            return View(model);
         }
 
         [HttpGet]
@@ -79,7 +82,7 @@ namespace MVC_Project.Areas.Admin.Controllers
             foreach (var item in reguest.Images)
             {
                 string fileName = $"{Guid.NewGuid()}-{item.FileName}";
-                string path = _env.GenerateFilePath("images", fileName);
+                string path = _env.GenerateFilePath("img", fileName);
                 await item.SaveFileToLocalAsync(path);
                 images.Add(new CourseImage { Name = fileName });
             }
@@ -87,12 +90,13 @@ namespace MVC_Project.Areas.Admin.Controllers
             Course course = new()
             {
                 Name = reguest.Name,
+                Duration=reguest.Duration,
                 Rating = reguest.Rating,
                 Price = reguest.Price,
                 CategoryId = reguest.CategoryId,
-                InstructorId=reguest.InstructorId,
-                CreateDate=DateTime.Now,
-                ActionBy=User.Identity.Name,
+                InstructorId = reguest.InstructorId,
+                CreateDate = DateTime.Now,
+                ActionBy = User.Identity.Name,
                 Images = images
             };
 
@@ -103,7 +107,7 @@ namespace MVC_Project.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int ? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id is null) return BadRequest();
             var course = await _service.GetById((int)id);
@@ -118,9 +122,75 @@ namespace MVC_Project.Areas.Admin.Controllers
                     System.IO.File.Delete(path);
                 }
             }
-    
+
 
             await _service.Delete(course);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            ViewBag.categories = await _categoryService.GetAllSelectList();
+            if (id is null) return BadRequest();
+            var course = await _service.GetByIdWithImage((int)id);
+            if (course is null) return NotFound();
+
+            var courseVM = new CourseEditVM
+            {
+                CourseName = course.Name,
+                CategoryId = course.CategoryId,
+                Duration = course.Duration,
+                Instructor = course.Instructor?.FullName,
+                Price = course.Price,
+                Rating = course.Rating,
+                CurrentImages = course.Images?.Where(m => m.CourseId == course.Id).Select(m => m.Name).ToList()
+            };
+
+            return View(courseVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int? id, CourseEditVM request)
+        {
+            ViewBag.categories = await _categoryService.GetAllSelectList();
+            if (id is null) return BadRequest();
+            var course = await _service.GetByIdWithImage((int)id);
+            if (course is null) return NotFound();
+
+
+            if (!ModelState.IsValid)
+            {
+                request.CurrentImages = course.Images?.Where(m => m.CourseId == course.Id).Select(m => m.Name).ToList();
+                return RedirectToAction(nameof(Index));
+            }
+
+
+            //if (request.NewImage != null)
+            //{
+            //    foreach (var item in request.NewImage)
+            //    {
+            //        if (!item.CheckFileSize(500))
+            //        {
+            //            request.CurrentImage = course.Image;
+            //            ModelState.AddModelError("Images", "Image size must be max 500KB");
+            //            return View(request);
+            //        }
+            //        if (!item.CheckFileType("image/"))
+            //        {
+            //            request.CurrentImage = course.Image;
+            //            ModelState.AddModelError("Images", "File type must be only image");
+            //            return View(request);
+            //        }
+            //    }
+               
+            //}
+
+            course.ActionBy = User.Identity.Name;
+
+            await _service.Edit(course, request);
+
             return RedirectToAction(nameof(Index));
         }
     }
