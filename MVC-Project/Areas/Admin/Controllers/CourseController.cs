@@ -167,25 +167,25 @@ namespace MVC_Project.Areas.Admin.Controllers
             }
 
 
-            //if (request.NewImage != null)
-            //{
-            //    foreach (var item in request.NewImage)
-            //    {
-            //        if (!item.CheckFileSize(500))
-            //        {
-            //            request.CurrentImage = course.Image;
-            //            ModelState.AddModelError("Images", "Image size must be max 500KB");
-            //            return View(request);
-            //        }
-            //        if (!item.CheckFileType("image/"))
-            //        {
-            //            request.CurrentImage = course.Image;
-            //            ModelState.AddModelError("Images", "File type must be only image");
-            //            return View(request);
-            //        }
-            //    }
-               
-            //}
+            if (request.NewImage != null)
+            {
+                foreach (var item in request.NewImage)
+                {
+                    if (!item.CheckFileSize(500))
+                    {
+                        request.CurrentImages = course.Images?.Where(m => m.CourseId == course.Id).Select(m => m.Name).ToList();
+                        ModelState.AddModelError("Images", "Image size must be max 500KB");
+                        return View(request);
+                    }
+                    if (!item.CheckFileType("image/"))
+                    {
+                        request.CurrentImages = course.Images?.Where(m => m.CourseId == course.Id).Select(m => m.Name).ToList();
+                        ModelState.AddModelError("Images", "File type must be only image");
+                        return View(request);
+                    }
+                }
+
+            }
 
             course.ActionBy = User.Identity.Name;
 
